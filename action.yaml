@@ -99,7 +99,7 @@ runs:
         "app": {
           "name": "'"$APP_NAME"'",
           "region": "${{ inputs.region }}",
-          "organization": "${{ inputs.organization }}",
+          "organization": "${{ inputs.organization }}"
         }
         }' \
         -H "Content-Type: application/json" \
