@@ -24,6 +24,10 @@ inputs:
     description: "Set up the initial build using app.json. For more info: https://devcenter.heroku.com/articles/setting-up-apps-using-the-heroku-platform-api"
     default: false
     required: false
+  organization:
+    description: "The organization for the app"
+    default: ""
+    required: false
 outputs:
   url:
     description: "The URL for the app"
@@ -94,7 +98,8 @@ runs:
         "source_blob": {"url": "'"$SOURCE_GET_URL"'", "version": "'"${{ github.event.pull_request.head.sha }}"'"},
         "app": {
           "name": "'"$APP_NAME"'",
-          "region": "${{ inputs.region }}"
+          "region": "${{ inputs.region }}",
+          "organization": "${{ inputs.organization }}",
         }
         }' \
         -H "Content-Type: application/json" \
